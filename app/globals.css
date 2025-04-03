@@ -447,7 +447,7 @@
     /* !important */
   }
   .header-user {
-    @apply my-3 flex items-center gap-2 rounded-full p-1 text-blue-100 sm:justify-center sm:bg-red-400 lg:justify-start lg:p-3;
+    @apply my-3 flex items-center gap-2 rounded-full p-1 text-gray-800 sm:justify-center sm:bg-red-400 lg:justify-start lg:p-3;
     /* !important */
   }
   .header-user-avatar {
@@ -463,7 +463,7 @@
     /* !important */
   }
   .mobile-nav-item {
-    @apply flex text-blue-100 gap-4 w-full justify-start items-center  px-6 h-[52px] rounded-full;
+    @apply flex text-gray-600 gap-4 w-full justify-start items-center  px-6 h-[52px] rounded-full;
     /* !important h5*/
   }
   .mobile-sign-out-button {
