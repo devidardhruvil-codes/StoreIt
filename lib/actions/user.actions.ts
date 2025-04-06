@@ -1,10 +1,11 @@
 "use server";
 
-import { ID, Query, Users } from "node-appwrite";
+import { Account, ID, Query, Users } from "node-appwrite";
 import { createAdminClient, createSessionClient } from "../appwrite";
 import { appwriteConfig } from "../appwrite/config";
 import { parseStringify } from "../utils";
 import { cookies } from "next/headers";
+import { redirect } from "next/navigation";
 
 const getUserByEmail = async (email: string) => {
   const { databases } = await createAdminClient();
@@ -152,5 +153,18 @@ export const getCurrentUser = async () => {
   } catch (error) {
     console.error("GetCurrentUser Error:", error);
     return null; // Return null instead of throwing, let caller handle
+  }
+};
+
+export const signOutUser = async () => {
+  const { account } = await createSessionClient();
+
+  try {
+    await account.deleteSession("current");
+    (await cookies()).delete("appwrite-session");
+  } catch (error) {
+    handleError(error, "Failed to sign out user");
+  } finally {
+    redirect("/sign-in");
   }
 };
