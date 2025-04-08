@@ -270,7 +270,7 @@
     /* !important body-2*/
   }
   .empty-list {
-    @apply mt-10 text-center text-blue-100;
+    @apply mt-10 text-center text-gray-500;
     /* !important body-1*/
   }
 
