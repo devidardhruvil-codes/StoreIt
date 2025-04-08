@@ -406,7 +406,7 @@
 
   /* FileUploader */
   .uploader-button {
-    @apply h-[52px] gap-2 px-10;
+    @apply h-[52px] gap-2 px-10 bg-red-400 shadow-2xl;
     /* !important shadow-drop-1  primary-btn*/
   }
   .uploader-preview-list {
