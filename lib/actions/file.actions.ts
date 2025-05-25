@@ -78,7 +78,7 @@ const createQueries = (currentUser: Models.Document) => {
 };
 
 export const getFiles = async () => {
-  const { databases } = await createAdminClient();
+  const { databases, storage } = await createAdminClient();
 
   try {
     const currentUser = await getCurrentUser();
@@ -92,9 +92,17 @@ export const getFiles = async () => {
       appwriteConfig.filesCollectionId,
       queries
     );
-    console.log("files: ", files);
 
-    return parseStringify(files);
+    // Add the correct URL to each file document
+    const filesWithUrls = files.documents.map((file) => ({
+      ...file,
+      url: `${appwriteConfig.endpointUrl}/storage/buckets/${appwriteConfig.bucketId}/files/${file.bucketFileId}/view?project=${appwriteConfig.projectId}`,
+    }));
+
+    return parseStringify({
+      ...files,
+      documents: filesWithUrls,
+    });
   } catch (error) {
     handleError(error, "Failed to get files");
   }
