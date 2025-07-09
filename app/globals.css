@@ -316,11 +316,11 @@
 
   /* ActionsModalContent */
   .file-details-thumbnail {
-    @apply !mb-1 flex items-center gap-3 rounded-xl border border-blue-200/40 bg-blue-400/50 p-3;
+    @apply !mb-1 flex items-center gap-3 rounded-xl border border-gray-300 bg-blue-50 p-3;
     /* !important */
   }
   .file-details-label {
-    @apply w-[30%] text-blue-100;
+    @apply w-[30%] text-gray-800;
     /* !important body-2*/
   }
   .file-details-value {
