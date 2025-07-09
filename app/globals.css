@@ -298,19 +298,19 @@
     /* !important shad-no-focus  body-2 shadow-drop-1*/
   }
   .delete-confirmation {
-    @apply text-center text-blue-100;
+    @apply text-center text-gray-700;
     /* !important */
   }
   .delete-file-name {
-    @apply font-medium text-red-100;
+    @apply font-medium text-red-500;
     /* !important */
   }
   .modal-cancel-button {
-    @apply h-[52px] flex-1 rounded-full bg-white text-black hover:bg-transparent;
+    @apply h-[52px] flex-1 rounded-full bg-white text-black hover:bg-transparent shadow-xl;
     /* !important */
   }
   .modal-submit-button {
-    @apply !mx-0 h-[52px] w-full flex-1 bg-red-400;
+    @apply !mx-0 h-[52px] rounded-full w-full flex-1 bg-red-400;
     /* !important primary-btn*/
   }
 
