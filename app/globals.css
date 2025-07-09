@@ -306,11 +306,11 @@
     /* !important */
   }
   .modal-cancel-button {
-    @apply h-[52px] flex-1 rounded-full bg-white text-blue-100 hover:bg-transparent;
+    @apply h-[52px] flex-1 rounded-full bg-white text-black hover:bg-transparent;
     /* !important */
   }
   .modal-submit-button {
-    @apply !mx-0 h-[52px] w-full flex-1;
+    @apply !mx-0 h-[52px] w-full flex-1 bg-red-400;
     /* !important primary-btn*/
   }
 

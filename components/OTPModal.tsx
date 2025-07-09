@@ -41,7 +41,6 @@ const OTPModal = ({
 
     try {
       const session = await verifySecret({ accountId, password });
-      console.log("Verification Result:", session);
       if (session?.sessionId) {
         router.push("/"); // Redirect to home on success
         router.refresh(); // Force refresh to sync server state
@@ -60,7 +59,6 @@ const OTPModal = ({
     //Call API to resend OTP.
     try {
       await sendEmailOTP({ email });
-      console.log("OTP Resent to:", email);
     } catch (error) {
       console.error("Failed to resend OTP:", error);
       setError("Failed to resend OTP. Please try again.");

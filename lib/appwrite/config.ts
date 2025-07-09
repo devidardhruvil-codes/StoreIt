@@ -7,9 +7,3 @@ export const appwriteConfig = {
   bucketId: process.env.NEXT_PUBLIC_APPWRITE_BUCKET!,
   secretKey: process.env.NEXT_APPWRITE_KEY!,
 };
-
-// Add this debugging
-console.log("Appwrite Config:", {
-  endpointUrl: appwriteConfig.endpointUrl,
-  projectId: appwriteConfig.projectId,
-});

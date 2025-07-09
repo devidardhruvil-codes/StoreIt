@@ -19,7 +19,6 @@ const getUserByEmail = async (email: string) => {
 
 //Error handler
 const handleError = (error: unknown, message: string) => {
-  console.log(error, message);
   throw error;
 };
 
@@ -36,13 +35,11 @@ export const sendEmailOTP = async ({ email }: { email: string }) => {
     if (existingUsers.total > 0) {
       // User exists, use their ID
       userId = existingUsers.users[0].$id;
-      console.log("Existing User ID:", userId);
     } else {
       // Create new user
       const tempPassword = "TempPass123!";
       const user = await account.create(ID.unique(), email, tempPassword);
       userId = user.$id;
-      console.log("Created User ID:", userId);
     }
 
     // Send OTP
@@ -88,7 +85,6 @@ export const createAccount = async ({
         accountId,
       }
     );
-    console.log("Created Database User:", newUser);
   } else {
     // Update existing document if accountId differs
     const userDoc = existingUser.documents[0];
@@ -99,7 +95,6 @@ export const createAccount = async ({
         userDoc.$id,
         { accountId }
       );
-      console.log("Updated Database User with accountId:", accountId);
     }
   }
 
@@ -114,14 +109,11 @@ export const verifySecret = async ({
   accountId: string;
   password: string;
 }) => {
-  console.log("Account ID: ", accountId);
-  console.log("Password (OTP): ", password);
   try {
     const { account } = await createAdminClient();
 
     //Create session with OTP
     const session = await account.createSession(accountId, password);
-    console.log("Session Created:", session.$id, session.secret); // Log session details
     (await cookies()).set("appwrite-session", session.secret, {
       path: "/",
       httpOnly: true,
@@ -140,15 +132,12 @@ export const getCurrentUser = async () => {
   try {
     const { databases, account } = await createSessionClient();
     const sessionCookie = (await cookies()).get("appwrite-session")?.value;
-    console.log("Session Cookie in getCurrentUser:", sessionCookie);
     const result = await account.get();
-    console.log("Current User:", result); // Log the user
     const user = await databases.listDocuments(
       appwriteConfig.databaseId,
       appwriteConfig.usersCollectionId,
       [Query.equal("accountId", result.$id)]
     );
-    console.log("Database Query Result:", user);
     return user.total > 0 ? parseStringify(user.documents[0]) : null;
   } catch (error) {
     console.error("GetCurrentUser Error:", error);
