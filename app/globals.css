@@ -2,10 +2,6 @@
 
 @custom-variant dark (&:is(.dark *));
 
-/* @tailwind base;
-@tailwind components;
-@tailwind utilities; */
-
 @layer base {
   * {
     @apply scroll-smooth;
@@ -224,7 +220,7 @@
 
   /* Root Layout */
   .main-content {
-    @apply h-full flex-1 overflow-auto bg-gray-200 px-5 py-7 sm:mr-7 sm:rounded-[30px] md:mb-7 md:px-9 md:py-10;
+    @apply h-full flex-1 overflow-auto bg-gray-100 px-5 py-7 sm:mr-7 sm:rounded-[30px] md:mb-7 md:px-9 md:py-10;
     /* !important remove-scrollbar*/
   }
 
@@ -262,7 +258,7 @@
     /* !important */
   }
   .recent-file-name {
-    @apply line-clamp-1 w-full text-blue-100 sm:max-w-[200px] lg:max-w-[250px];
+    @apply line-clamp-1 w-full text-gray-900 sm:max-w-[200px] lg:max-w-[250px];
     /* !important subtitle-2*/
   }
   .recent-file-date {
