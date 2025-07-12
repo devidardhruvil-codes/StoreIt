@@ -20,6 +20,10 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: "https",
+        hostname: "cdn1.iconfinder.com",
+      },
+      {
+        protocol: "https",
         hostname: "img.freepik.com",
       },
       {

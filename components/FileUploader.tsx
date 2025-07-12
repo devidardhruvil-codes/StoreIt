@@ -61,7 +61,10 @@ const FileUploader = ({ ownerId, accountId, className }: Props) => {
   return (
     <div {...getRootProps()} className="cursor-pointer">
       <input {...getInputProps()} />
-      <Button type="button" className={cn("uploader-button", className)}>
+      <Button
+        type="button"
+        className={cn("uploader-button primary-btn shadow-2xl", className)}
+      >
         <Image
           src="/assets/icons/upload.svg"
           alt="upload"
@@ -71,7 +74,7 @@ const FileUploader = ({ ownerId, accountId, className }: Props) => {
         <p>Upload</p>
       </Button>
       {files.length > 0 && (
-        <ul className="uploader-preview-list">
+        <ul className="uploader-preview-list shadow-2xl">
           <h4 className="h4 text-gray-700">Uploading</h4>
           {files.map((file, index) => {
             const { type, extension } = getFileType(file.name);
@@ -79,7 +82,7 @@ const FileUploader = ({ ownerId, accountId, className }: Props) => {
             return (
               <li
                 key={`${file.name}-${index}`}
-                className="uploader-preview-item"
+                className="uploader-preview-item shadow-md"
               >
                 <div className="flex items-center gap-3">
                   <Thumbnail
